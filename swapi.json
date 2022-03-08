@@ -1,0 +1,79 @@
+{
+    "openapi": "3.0.1",
+    "info": {
+        "title": "Star Wars API",
+        "version": "1.0"
+    },
+    "servers": [
+        {
+            "url": "https://fusion-apis.azure-api.net/sw"
+        }
+    ],
+    "paths": {
+        "/people/": {
+            "get": {
+                "summary": "GetPeople",
+                "description": "Get characters from the Star Wars Universe",
+                "operationId": "getpeople",
+                "parameters": [
+                    {
+                        "name": "search",
+                        "in": "query",
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": ""
+                    }
+                }
+            }
+        },
+        "/people/{id}": {
+            "get": {
+                "summary": "GetPeopleById",
+                "description": "Get individual characters from the Star Wars Universe",
+                "operationId": "getpeoplebyid",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": ""
+                    }
+                }
+            }
+        }
+    },
+    "components": {
+        "securitySchemes": {
+            "apiKeyHeader": {
+                "type": "apiKey",
+                "name": "Ocp-Apim-Subscription-Key",
+                "in": "header"
+            },
+            "apiKeyQuery": {
+                "type": "apiKey",
+                "name": "subscription-key",
+                "in": "query"
+            }
+        }
+    },
+    "security": [
+        {
+            "apiKeyHeader": []
+        },
+        {
+            "apiKeyQuery": []
+        }
+    ]
+}
